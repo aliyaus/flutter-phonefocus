@@ -24,3 +24,6 @@ mirroring, two hands, and background/resume behavior.
 # To build a release to iOS device
 1. Check wirelessly connected devices by running `flutter devices`
 2. Run `flutter run --release -d <device id from any of the devices returned from previous command>`
+
+# To view device logs
+1. `flutter logs -d <device id>`

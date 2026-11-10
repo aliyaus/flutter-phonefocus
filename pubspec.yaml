@@ -16,6 +16,7 @@ dependencies:
   hand_detection: ^4.3.1
   flutter_litert: ^3.9.2
   lottie: ^3.8.2
+  face_detection_tflite: ^6.10.1
 
 dev_dependencies:
   flutter_test:
