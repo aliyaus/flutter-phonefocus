@@ -28,6 +28,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Phonefocus uses the camera while lock in mode is enabled for hand detection.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Phonefocus uses motion sensors to detect phone pickups during lock in mode.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
