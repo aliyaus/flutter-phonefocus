@@ -7,6 +7,7 @@ import 'package:phonefocus/settings/settings.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 
 import 'hand_detection.dart';
+import 'widgets/app_animation.dart';
 
 const double pickupThreshold = 1.2;
 const Duration restDuration = Duration(seconds: 1);
@@ -65,7 +66,7 @@ class _MainAppState extends State<MainApp> {
             final acceleration = sqrt(
               event.x * event.x + event.y * event.y + event.z * event.z,
             );
-            
+
             // Ignore sensor readings below pickupThreshold
             if (acceleration < pickupThreshold) return;
 
@@ -192,7 +193,6 @@ class _MainAppState extends State<MainApp> {
   }
 
   // potential enhancements
-  // 1. cute eye animations when listening and animation when playing sound
   // 3. add vibrations when phone is picked up
   // 4. background hand detection
   // 5. settings screen to configure hand detection, vibrations, ect.
@@ -209,6 +209,15 @@ class _MainAppState extends State<MainApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              StreamBuilder<PlayerState>(
+                stream: _soundPlayer.onPlayerStateChanged,
+                initialData: _soundPlayer.state,
+                builder: (context, snapshot) => AppAnimation(
+                  assetPath: snapshot.data == PlayerState.playing
+                      ? 'assets/animations/angry.lottie'
+                      : 'assets/animations/default.lottie',
+                ),
+              ),
               Text(
                 _lockInMode ? 'Turn off lock in mode' : 'Start Lock in mode',
               ),
